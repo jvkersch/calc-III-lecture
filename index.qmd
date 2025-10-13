@@ -8,9 +8,61 @@ format: revealjs
 
 # Detecting edges in images
 
-## Placeholder slide 1
+## The 10,000 foot view
 
-## Placeholder slide 2
+:::: {.columns}
+::: {.column width="60%"}
+
+Main idea 💡
+
+- Edges are where an image **suddenly changes**
+- Changes can be quantified with derivatives
+
+To detect edges in an image:
+
+- Calculate its gradient
+- Determine the magnitude of the gradient
+
+:::
+::: {.column width="40%"}
+![](images/Valve_original.png)
+![](images/Valve_monochrome_canny.png)
+
+::: {.small-text}
+Image credit: Wikipedia [Canny edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector)
+:::
+:::
+::::
+
+## How do we compute the gradient of an image?
+
+Images are just **functions** that assign a value to each pixel:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Grayscale intensity
+
+![](images/chelsea-gray.png)
+$$
+    I: [0, W] \times [0, H] \to \mathbb{R}^\phantom{3}
+$$
+
+:::
+::: {.column width="50%"}
+RGB(A) color
+
+![](images/chelsea-color.png)
+$$
+    I: [0, W] \times [0, H] \to \mathbb{R}^3
+$$
+:::
+
+::::
+
+::: {.small-text}
+Image credit: [Chelsea the cat](https://scikit-image.org/docs/0.23.x/api/skimage.data.html#skimage.data.cat), scikit-image developers (CC0)
+:::
 
 ##
 
@@ -19,6 +71,75 @@ format: revealjs
 </iframe>
 :::
 
+## Detecting changes via gradients
+
+If we have a function $I$, we can compute its gradient:
+$$
+\nabla I = \begin{pmatrix} 
+        \frac{\partial I}{\partial x} \\
+        \frac{\partial I}{\partial y}
+    \end{pmatrix}.
+$$
+
+The magnitude
+$$
+    \left\Vert \nabla I \right\Vert =
+    \sqrt{\left(\frac{\partial I}{\partial x}\right)^2 +
+          \left(\frac{\partial I}{\partial y}\right)^2}
+$$
+tells us about **changes** in $I$.
+
+## Images are discrete functions
+
+![](images/chelsea-pixels-composite.svg)
+
+Hard to compute the gradient of a discrete function!
+
+## Think about rate of change
+
+- The partial derivative tells us something about **rate of change**:
+$$
+    \frac{\partial I}{\partial x}: \text{rate of change in $x$-direction}
+$$
+
+- For a discrete function: replace
+$$
+    \frac{\partial I}{\partial x}(i, j) \rightarrow \boxed{I(i + 1, j) - I(i - 1, j)}
+$$
+
+::: {.tiny-text}
+You can use Taylor expansions to show that the so-called central difference approximation above is proportional to the derivative up to second order, but as it's close to lunchtime we will not do that...
+:::
+
+## Finite differences are just matrices
+
+Let's write our finite difference as a matrix multiplication:
+\begin{align*}
+    I_{i + 1, j} - I_{i - 1, j} & = \begin{bmatrix} -1 & 0 & 1 \end{bmatrix}
+    \begin{bmatrix}
+        I_{i-1, j} \\ 
+        I_{i,j} \\
+        I_{i+1, j}
+    \end{bmatrix}
+\end{align*}
+
+Why would we do that? Computers these days are **very good** at working with matrices.
+
+## Let's go one step further
+
+To have a more stable rate of change, it makes sense to average over nearby pixels.
+
+This can be written as a **convolution operation**:
+$$
+     \frac{\partial I}{\partial x} \rightarrow 
+        \begin{bmatrix}
+            -1 & 0 & 1 \\
+            -2 & 0 & 2 \\
+            -1 & 0 & 1 \\
+        \end{bmatrix} \ast I
+$$
+Congratulations, you have just rediscovered the Sobel operator!
+
 ##
 
 ::: {.column-screen}
@@ -26,3 +147,26 @@ format: revealjs
 </iframe>
 :::
 
+## What does this give us?
+
+The Sobel operator is:
+
+- The basis for the Canny edge detector
+- An example of a feature map in a **convolutional neural network**
+
+![](images/Typical_cnn.png){fig-align="center"}
+
+::: {.small-text}
+Image credit: Wikipedia [Convolutional neural network](https://en.wikipedia.org/wiki/File:Typical_cnn.png)
+:::
+
+## Current state of the art
+
+- The Canny edge detector is very efficient and easy to implement: state of the art for many years.
+- Modern deep neural networks outperform it, but are much more expensive to run.
+
+![](https://github.com/facebookresearch/sam2/raw/main/assets/sa_v_dataset.jpg?raw=true){fig-align="center" width="60%"}
+
+::: {.small-text}
+Image credit: Facebook Research [SAM2](https://github.com/facebookresearch/sam2)
+:::
