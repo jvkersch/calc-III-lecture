@@ -1,3 +1,4 @@
 /.quarto/
 site-apps
 _site
+.DS_Store
