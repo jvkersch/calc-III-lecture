@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: docs
+
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    incremental: true
+    controls: true
+    overview: true

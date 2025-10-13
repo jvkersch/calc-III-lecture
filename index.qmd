@@ -1,0 +1,13 @@
+---
+title: "How calculus powers AI and modern tech"
+author: "Joris Vankerschaver"
+format: revealjs
+---
+
+## Who am I
+
+# Detecting edges in images
+
+## Placeholder slide 1
+
+## Placeholder slide 2
