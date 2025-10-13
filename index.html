@@ -30,6 +30,7 @@
     }
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="custom.scss">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -146,24 +147,138 @@ Joris Vankerschaver
 <h1>Detecting edges in images</h1>
 
 </section>
-<section id="placeholder-slide-1" class="slide level2">
-<h2>Placeholder slide 1</h2>
+<section id="the-10000-foot-view" class="slide level2">
+<h2>The 10,000 foot view</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Main idea 💡</p>
+<ul>
+<li>Edges are where an image <strong>suddenly changes</strong></li>
+<li>Changes can be quantified with derivatives</li>
+</ul>
+<p>To detect edges in an image:</p>
+<ul>
+<li>Calculate its gradient</li>
+<li>Determine the magnitude of the gradient</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/Valve_original.png"> <img data-src="images/Valve_monochrome_canny.png"></p>
+<div class="small-text">
+<p>Image credit: Wikipedia <a href="https://en.wikipedia.org/wiki/Canny_edge_detector">Canny edge detector</a></p>
+</div>
+</div></div>
 </section>
-<section id="placeholder-slide-2" class="slide level2">
-<h2>Placeholder slide 2</h2>
+<section id="how-do-we-compute-the-gradient-of-an-image" class="slide level2">
+<h2>How do we compute the gradient of an image?</h2>
+<p>Images are just <strong>functions</strong> that assign a value to each pixel:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Grayscale intensity</p>
+<p><img data-src="images/chelsea-gray.png"> <span class="math display">\[
+    I: [0, W] \times [0, H] \to \mathbb{R}^\phantom{3}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>RGB(A) color</p>
+<p><img data-src="images/chelsea-color.png"> <span class="math display">\[
+    I: [0, W] \times [0, H] \to \mathbb{R}^3
+\]</span></p>
+</div></div>
+<div class="small-text">
+<p>Image credit: <a href="https://scikit-image.org/docs/0.23.x/api/skimage.data.html#skimage.data.cat">Chelsea the cat</a>, scikit-image developers (CC0)</p>
+</div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
 <div class="column-screen">
-<iframe src="https://jvkersch.github.io/calc-III-lecture/image-as-function/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+<iframe src="./image-as-function/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
 </iframe>
 </div>
+</section>
+<section id="detecting-changes-via-gradients" class="slide level2">
+<h2>Detecting changes via gradients</h2>
+<p>If we have a function <span class="math inline">\(I\)</span>, we can compute its gradient: <span class="math display">\[
+\nabla I = \begin{pmatrix}
+        \frac{\partial I}{\partial x} \\
+        \frac{\partial I}{\partial y}
+    \end{pmatrix}.
+\]</span></p>
+<p>The magnitude <span class="math display">\[
+    \left\Vert \nabla I \right\Vert =
+    \sqrt{\left(\frac{\partial I}{\partial x}\right)^2 +
+          \left(\frac{\partial I}{\partial y}\right)^2}
+\]</span> tells us about <strong>changes</strong> in <span class="math inline">\(I\)</span>.</p>
+</section>
+<section id="images-are-discrete-functions" class="slide level2">
+<h2>Images are discrete functions</h2>
+
+<img data-src="images/chelsea-pixels-composite.svg" class="r-stretch"><p>Hard to compute the gradient of a discrete function!</p>
+</section>
+<section id="think-about-rate-of-change" class="slide level2">
+<h2>Think about rate of change</h2>
+<ul>
+<li><p>The partial derivative tells us something about <strong>rate of change</strong>: <span class="math display">\[
+  \frac{\partial I}{\partial x}: \text{rate of change in $x$-direction}
+\]</span></p></li>
+<li><p>For a discrete function: replace <span class="math display">\[
+  \frac{\partial I}{\partial x}(i, j) \rightarrow \boxed{I(i + 1, j) - I(i - 1, j)}
+\]</span></p></li>
+</ul>
+<div class="tiny-text">
+<p>You can use Taylor expansions to show that the so-called central difference approximation above is proportional to the derivative up to second order, but as it’s close to lunchtime we will not do that…</p>
+</div>
+</section>
+<section id="finite-differences-are-just-matrices" class="slide level2">
+<h2>Finite differences are just matrices</h2>
+<p>Let’s write our finite difference as a matrix multiplication: <span class="math display">\[\begin{align*}
+    I_{i + 1, j} - I_{i - 1, j} &amp; = \begin{bmatrix} -1 &amp; 0 &amp; 1 \end{bmatrix}
+    \begin{bmatrix}
+        I_{i-1, j} \\
+        I_{i,j} \\
+        I_{i+1, j}
+    \end{bmatrix}
+\end{align*}\]</span></p>
+<p>Why would we do that? Computers these days are <strong>very good</strong> at working with matrices.</p>
+</section>
+<section id="lets-go-one-step-further" class="slide level2">
+<h2>Let’s go one step further</h2>
+<p>To have a more stable rate of change, it makes sense to average over nearby pixels.</p>
+<p>This can be written as a <strong>convolution operation</strong>: <span class="math display">\[
+     \frac{\partial I}{\partial x} \rightarrow
+        \begin{bmatrix}
+            -1 &amp; 0 &amp; 1 \\
+            -2 &amp; 0 &amp; 2 \\
+            -1 &amp; 0 &amp; 1 \\
+        \end{bmatrix} \ast I
+\]</span> Congratulations, you have just rediscovered the Sobel operator!</p>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <div class="column-screen">
-<iframe src="https://jvkersch.github.io/calc-III-lecture/edge-detector/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+<iframe src="./edge-detector/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
 </iframe>
+</div>
+</section>
+<section id="what-does-this-give-us" class="slide level2">
+<h2>What does this give us?</h2>
+<p>The Sobel operator is:</p>
+<ul>
+<li>The basis for the Canny edge detector</li>
+<li>An example of a feature map in a <strong>convolutional neural network</strong></li>
+</ul>
+
+<img data-src="images/Typical_cnn.png" class="quarto-figure quarto-figure-center r-stretch"><div class="small-text">
+<p>Image credit: Wikipedia <a href="https://en.wikipedia.org/wiki/File:Typical_cnn.png">Convolutional neural network</a></p>
+</div>
+</section>
+<section id="current-state-of-the-art" class="slide level2">
+<h2>Current state of the art</h2>
+<ul>
+<li>The Canny edge detector is very efficient and easy to implement: state of the art for many years.</li>
+<li>Modern deep neural networks outperform it, but are much more expensive to run.</li>
+</ul>
+
+<img data-src="https://github.com/facebookresearch/sam2/raw/main/assets/sa_v_dataset.jpg?raw=true" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div class="small-text">
+<p>Image credit: Facebook Research <a href="https://github.com/facebookresearch/sam2">SAM2</a></p>
 </div>
 
 
