@@ -26,4 +26,5 @@ shiny run <shiny-apps/path/to/app.py>
 As the apps are pure Python files, running the linter is easy:
 ```console
 ruff check --fix
+ruff format
 ```
