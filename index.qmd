@@ -11,3 +11,11 @@ format: revealjs
 ## Placeholder slide 1
 
 ## Placeholder slide 2
+
+##
+
+::: {.column-screen}
+<iframe src="https://jvkersch.github.io/calc-III-lecture/edge-detector/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+</iframe>
+:::
+

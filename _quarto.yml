@@ -1,6 +1,7 @@
 project:
   type: website
-  output-dir: docs
+  post-render:
+    - "rsync -av site-apps/. _site/"
 
 format:
   revealjs:
