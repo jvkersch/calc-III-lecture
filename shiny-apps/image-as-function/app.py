@@ -41,13 +41,15 @@ IMAGE_FACTORIES = {
     "Coins": coins_factory,
 }
 
+
+
+
 ui.page_opts(title="Images as functions", fillable=True)
 
-with ui.sidebar():
-    ui.input_selectize(
-        "image", "Image",
-        list(IMAGE_FACTORIES),
-    )
+ui.input_selectize(
+    "image", "Image",
+    list(IMAGE_FACTORIES),
+)
 
 @reactive.calc
 def img():
