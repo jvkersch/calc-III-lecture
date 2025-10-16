@@ -7,6 +7,41 @@
     "text": "Who am I"
   },
   {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "How calculus powers AI and modern tech",
+    "section": "",
+    "text": "Give some examples of functions that need to be optimized Include some examples from data science and economics"
+  },
+  {
+    "objectID": "index.html#intuition",
+    "href": "index.html#intuition",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Intuition",
+    "text": "Intuition\n\n\n\nYou want to go down the mountain into the valley as efficiently as possible.\nThe fog prevents you from seeing more than a few meters in every direction.\nHow do you proceed?\n\n💡 Walk in the direction of steepest descent"
+  },
+  {
+    "objectID": "index.html#what-is-the-direction-of-steepest-descent",
+    "href": "index.html#what-is-the-direction-of-steepest-descent",
+    "title": "How calculus powers AI and modern tech",
+    "section": "What is the direction of steepest descent?",
+    "text": "What is the direction of steepest descent?\n\nGradient: direction of steepest ascent ⬆️\nNegative gradient: descent ⬇️\n\n\\[\n    \\nabla J = \\begin{pmatrix}\n        \\frac{\\partial J}{\\partial x_1} \\\\\n        \\vdots \\\\\n        \\frac{\\partial J}{\\partial x_n} \\\\\n    \\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "index.html#gradient-descent",
+    "href": "index.html#gradient-descent",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Gradient descent",
+    "text": "Gradient descent\nTake small steps in the direction of the negative gradient: \\[\n    x' = x - h \\nabla J\n\\] Stop when no longer making progress.\nStep size \\(h\\) can be fixed or adaptive."
+  },
+  {
+    "objectID": "index.html#taking-curvature-into-account",
+    "href": "index.html#taking-curvature-into-account",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Taking curvature into account",
+    "text": "Taking curvature into account"
+  },
+  {
     "objectID": "index.html#the-10000-foot-view",
     "href": "index.html#the-10000-foot-view",
     "title": "How calculus powers AI and modern tech",

@@ -143,6 +143,60 @@ Joris Vankerschaver
 <h2>Who am I</h2>
 </section>
 <section>
+<section id="optimizing-mathematical-functions" class="title-slide slide level1 center">
+<h1>Optimizing mathematical functions</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>Give some examples of functions that need to be optimized Include some examples from data science and economics</p>
+</section>
+<section id="intuition" class="slide level2">
+<h2>Intuition</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>You want to go down the mountain into the valley as efficiently as possible.</li>
+<li>The fog prevents you from seeing more than a few meters in every direction.</li>
+<li>How do you proceed?</li>
+</ul>
+<p>💡 Walk in the direction of <strong>steepest descent</strong></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/cdf-wanderer.jpeg"></p>
+</div></div>
+</section>
+<section id="what-is-the-direction-of-steepest-descent" class="slide level2">
+<h2>What is the direction of steepest descent?</h2>
+<ul>
+<li>Gradient: direction of steepest ascent ⬆️</li>
+<li>Negative gradient: <strong>descent</strong> ⬇️</li>
+</ul>
+<p><span class="math display">\[
+    \nabla J = \begin{pmatrix}
+        \frac{\partial J}{\partial x_1} \\
+        \vdots \\
+        \frac{\partial J}{\partial x_n} \\
+    \end{pmatrix}
+\]</span></p>
+</section>
+<section id="gradient-descent" class="slide level2">
+<h2>Gradient descent</h2>
+<p>Take small steps in the direction of the negative gradient: <span class="math display">\[
+    x' = x - h \nabla J
+\]</span> Stop when no longer making progress.</p>
+<p>Step size <span class="math inline">\(h\)</span> can be fixed or adaptive.</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="column-screen">
+<iframe src="./gradient-descent/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+</iframe>
+</div>
+</section>
+<section id="taking-curvature-into-account" class="slide level2">
+<h2>Taking curvature into account</h2>
+</section></section>
+<section>
 <section id="detecting-edges-in-images" class="title-slide slide level1 center">
 <h1>Detecting edges in images</h1>
 
@@ -187,7 +241,7 @@ Joris Vankerschaver
 <p>Image credit: <a href="https://scikit-image.org/docs/0.23.x/api/skimage.data.html#skimage.data.cat">Chelsea the cat</a>, scikit-image developers (CC0)</p>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="column-screen">
 <iframe src="./image-as-function/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
@@ -251,7 +305,7 @@ Joris Vankerschaver
         \end{bmatrix} \ast I
 \]</span> Congratulations, you have just rediscovered the Sobel operator!</p>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="column-screen">
 <iframe src="./edge-detector/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
