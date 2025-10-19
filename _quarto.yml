@@ -6,8 +6,8 @@ project:
 format:
   revealjs:
     theme: simple
+    css: custom.css
     slide-number: true
     transition: fade
     controls: true
-    overview: true
-    css: custom.scss
+    overview: true 

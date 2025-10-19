@@ -261,7 +261,7 @@ To detect edges in an image:
 ![](images/Valve_original.png){fig-align="center" width="75%"}
 ![](images/Valve_monochrome_canny.png){fig-align="center" width="75%"}
 
-::: {.small-text}
+::: {.tiny-text}
 Image credit: Wikipedia [Canny edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector)
 :::
 :::
@@ -293,7 +293,7 @@ $$
 
 ::::
 
-::: {.small-text}
+::: {.tiny-text}
 Image credit: [Chelsea the cat](https://scikit-image.org/docs/0.23.x/api/skimage.data.html#skimage.data.cat), scikit-image developers (CC0)
 :::
 
@@ -389,7 +389,7 @@ The Sobel operator is:
 
 ![](images/Typical_cnn.png){fig-align="center"}
 
-::: {.small-text}
+::: {.tiny-text}
 Image credit: Wikipedia [Convolutional neural network](https://en.wikipedia.org/wiki/File:Typical_cnn.png)
 :::
 
@@ -400,7 +400,7 @@ Image credit: Wikipedia [Convolutional neural network](https://en.wikipedia.org/
 
 ![](https://github.com/facebookresearch/sam2/raw/main/assets/sa_v_dataset.jpg?raw=true){fig-align="center" width="60%"}
 
-::: {.small-text}
+::: {.tiny-text}
 Image credit: Meta AI [SAM2](https://github.com/facebookresearch/sam2)
 :::
 
