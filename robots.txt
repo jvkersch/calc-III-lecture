@@ -1,1 +1,1 @@
-Sitemap: https://jvkersch.github.io/calc-III-lecture/sitemap.xml
+Sitemap: https://jvkersch.github.io/gmu-calc-lecture/sitemap.xml

@@ -1,38 +1,108 @@
 [
   {
-    "objectID": "index.html#who-am-i",
-    "href": "index.html#who-am-i",
+    "objectID": "index.html#about-this-presentation",
+    "href": "index.html#about-this-presentation",
     "title": "How calculus powers AI and modern tech",
-    "section": "Who am I",
-    "text": "Who am I"
+    "section": "About this presentation",
+    "text": "About this presentation\n\nPresentation: https://jvkersch.github.io/gmu-calc-lecture\nCode: https://github.com/jvkersch/gmu-calc-lecture\nThe presentation can be run from your browser\nEmbedded scripts take a while to load (10-20s) first time"
   },
   {
-    "objectID": "index.html#section",
-    "href": "index.html#section",
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
     "title": "How calculus powers AI and modern tech",
-    "section": "",
-    "text": "Give some examples of functions that need to be optimized Include some examples from data science and economics"
+    "section": "Introduction",
+    "text": "Introduction\n(who am I)"
   },
   {
-    "objectID": "index.html#intuition",
-    "href": "index.html#intuition",
+    "objectID": "index.html#what-are-we-going-to-do-today",
+    "href": "index.html#what-are-we-going-to-do-today",
     "title": "How calculus powers AI and modern tech",
-    "section": "Intuition",
-    "text": "Intuition\n\n\n\nYou want to go down the mountain into the valley as efficiently as possible.\nThe fog prevents you from seeing more than a few meters in every direction.\nHow do you proceed?\n\n💡 Walk in the direction of steepest descent"
+    "section": "What are we going to do today?",
+    "text": "What are we going to do today?\nWe will use calculus (and a little linear algebra) to\n\nOptimize neural networks and other functions\nFind edges in images"
   },
   {
-    "objectID": "index.html#what-is-the-direction-of-steepest-descent",
-    "href": "index.html#what-is-the-direction-of-steepest-descent",
+    "objectID": "index.html#example-1-training-a-neural-network",
+    "href": "index.html#example-1-training-a-neural-network",
     "title": "How calculus powers AI and modern tech",
-    "section": "What is the direction of steepest descent?",
-    "text": "What is the direction of steepest descent?\n\nGradient: direction of steepest ascent ⬆️\nNegative gradient: descent ⬇️\n\n\\[\n    \\nabla J = \\begin{pmatrix}\n        \\frac{\\partial J}{\\partial x_1} \\\\\n        \\vdots \\\\\n        \\frac{\\partial J}{\\partial x_n} \\\\\n    \\end{pmatrix}\n\\]"
+    "section": "Example 1: Training a neural network",
+    "text": "Example 1: Training a neural network\nYou have:\n\nTraining data: \\((x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\)\nA model with parameters: \\(\\theta = (\\theta_1, \\theta_2, \\ldots, \\theta_p)\\)\nA loss function: \\(L(\\theta) = \\frac{1}{n}\\sum_{i=1}^n (f(x_i; \\theta) - y_i)^2\\)\n\nGoal: Find \\(\\theta^*\\) that minimizes \\(L(\\theta)\\)"
   },
   {
-    "objectID": "index.html#gradient-descent",
-    "href": "index.html#gradient-descent",
+    "objectID": "index.html#finding-the-minimum-can-be-difficult",
+    "href": "index.html#finding-the-minimum-can-be-difficult",
     "title": "How calculus powers AI and modern tech",
-    "section": "Gradient descent",
-    "text": "Gradient descent\nTake small steps in the direction of the negative gradient: \\[\n    x' = x - h \\nabla J\n\\] Stop when no longer making progress.\nStep size \\(h\\) can be fixed or adaptive."
+    "section": "Finding the minimum can be difficult",
+    "text": "Finding the minimum can be difficult\n\n\nVisualizing the Loss Landscape of Neural Nets, Li et al., NeurIPS 2018."
+  },
+  {
+    "objectID": "index.html#example-2-profit-maximization",
+    "href": "index.html#example-2-profit-maximization",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Example 2: Profit maximization",
+    "text": "Example 2: Profit maximization\nA firm produces and sells a product.\n\n\\(q\\): quantity produced\n\n\\(P(q)\\): price per unit\n\n\\(C(q)\\): cost function\n\nMaximize (possibly subject to constraints) \\[\n\\Pi(q) = P(q)q - C(q)\n\\]\nMaximizing \\(\\Pi(q)\\) is the same as minimizing \\(L(q) = - \\Pi(q)\\)."
+  },
+  {
+    "objectID": "index.html#the-calculus-connection",
+    "href": "index.html#the-calculus-connection",
+    "title": "How calculus powers AI and modern tech",
+    "section": "The calculus connection",
+    "text": "The calculus connection\nTo minimize \\(L(\\theta)\\), find zeros of the gradient\n\\[\n    \\nabla L(\\theta) =\n        \\begin{pmatrix}\n            \\frac{\\partial L}{\\partial \\theta_1} \\\\\n            \\frac{\\partial L}{\\partial \\theta_2} \\\\\n            \\vdots \\\\\n            \\frac{\\partial L}{\\partial \\theta_p}\n        \\end{pmatrix}\n\\]\n\nZeros are minima, maxima, or saddle points\nHard (impossible) to solve analytically"
+  },
+  {
+    "objectID": "index.html#the-descent-beckons",
+    "href": "index.html#the-descent-beckons",
+    "title": "How calculus powers AI and modern tech",
+    "section": "The descent beckons",
+    "text": "The descent beckons\n\n\n\nYou want to go down the mountain into the valley as efficiently as possible.\nThe fog prevents you from seeing more than a few meters in every direction.\nHow do you proceed?\n\n💡 Walk in the direction of steepest descent\n\n\n\n\n\n\n\nWanderer above the Sea of Fog, Caspar David Friedrich (1818)"
+  },
+  {
+    "objectID": "index.html#moving-in-the-direction-of-steepest-descent",
+    "href": "index.html#moving-in-the-direction-of-steepest-descent",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Moving in the direction of steepest descent",
+    "text": "Moving in the direction of steepest descent\n\n\nRecall:\n\nGradient: direction of steepest ascent ⬆️\nNegative gradient: steepest descent ⬇️"
+  },
+  {
+    "objectID": "index.html#the-gradient-descent-method",
+    "href": "index.html#the-gradient-descent-method",
+    "title": "How calculus powers AI and modern tech",
+    "section": "The gradient descent method",
+    "text": "The gradient descent method\n\nStart with initial guess \\(\\theta^{(0)}\\) and iterate: \\[\n  \\theta^{(k+1)} = \\theta^{(k)} - \\alpha \\nabla L(\\theta^{(k)})\n\\] Here, \\(\\alpha\\) is the learning rate (step size)\nRepeat until no more progress"
+  },
+  {
+    "objectID": "index.html#aside-continuous-gradient-descent",
+    "href": "index.html#aside-continuous-gradient-descent",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Aside: “continuous” gradient descent",
+    "text": "Aside: “continuous” gradient descent\n\n\nIn the limit of very small steps (\\(\\alpha \\to 0\\)), we get an ODE\n\\[\n    \\frac{d {\\theta}}{dt} = - \\nabla L(\\theta).\n\\]\nFinding minima is the same as finding attracting fixed points of this ODE."
+  },
+  {
+    "objectID": "index.html#backpropagation-gradient-of-a-neural-network",
+    "href": "index.html#backpropagation-gradient-of-a-neural-network",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Backpropagation: gradient of a neural network",
+    "text": "Backpropagation: gradient of a neural network\n\n\nSource: GeeksForGeeks Backpropagation in neural networks"
+  },
+  {
+    "objectID": "index.html#neural-network-training",
+    "href": "index.html#neural-network-training",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Neural network training",
+    "text": "Neural network training\n(Stochastic) Gradient Descent:\n\nHow neural networks were trained up until the 2010s\nStill a good algorithm to know about!\n\nThese days, more sophisticated algorithms exist (Adam, RMSprop, etc)."
+  },
+  {
+    "objectID": "index.html#neural-network-training-1",
+    "href": "index.html#neural-network-training-1",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Neural network training",
+    "text": "Neural network training\n\n\nSource: ImageNet Classification with Deep Convolutional Neural Networks, Krizhevsky et al, NeurIPS (2012)"
+  },
+  {
+    "objectID": "index.html#neural-network-training-2",
+    "href": "index.html#neural-network-training-2",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Neural network training",
+    "text": "Neural network training"
   },
   {
     "objectID": "index.html#taking-curvature-into-account",
@@ -42,6 +112,34 @@
     "text": "Taking curvature into account"
   },
   {
+    "objectID": "index.html#the-hessian-matrix",
+    "href": "index.html#the-hessian-matrix",
+    "title": "How calculus powers AI and modern tech",
+    "section": "The Hessian matrix",
+    "text": "The Hessian matrix\n\\[\nH(L)(\\theta) =\n\\begin{pmatrix}\n    \\frac{\\partial^2 L}{\\partial \\theta_1^2} & \\cdots & \\frac{\\partial^2 L}{\\partial \\theta_1\\partial \\theta_n} \\\\\n    \\vdots & & \\vdots \\\\\n    \\frac{\\partial^2 L}{\\partial \\theta_n\\partial \\theta_1} & \\cdots & \\frac{\\partial^2 L}{\\partial \\theta_n^2}\n\\end{pmatrix}\n\\]\n\nSymmetric if \\(L\\) twice continuously differentiable.\nCaptures local curvature: how the gradient changes near a point."
+  },
+  {
+    "objectID": "index.html#newtons-method",
+    "href": "index.html#newtons-method",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Newton’s method",
+    "text": "Newton’s method\n\nGradient descent uses only first derivatives.\nNewton’s method uses curvature:\n\n\\[\n\\theta_{k+1} = \\theta_k - H(L)^{-1}\\nabla L(\\theta_k)\n\\]\n\nAdapts step magnitude and direction.\nQuadratic convergence near a minimum if \\(H(L)\\) is positive definite."
+  },
+  {
+    "objectID": "index.html#newtons-method-in-action",
+    "href": "index.html#newtons-method-in-action",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Newton’s method in action",
+    "text": "Newton’s method in action"
+  },
+  {
+    "objectID": "index.html#conclusion-so-far",
+    "href": "index.html#conclusion-so-far",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Conclusion so far",
+    "text": "Conclusion so far\n\nNeural networks are functions\nFinding optimal parameters = high-dimensional optimization\nGradient/Hessian tells us how to adjust parameters\nModern deep learning uses sophisticated variants (Adam, RMSprop)\nCalculus gives you the foundation to understand all of these algorithms!"
+  },
+  {
     "objectID": "index.html#the-10000-foot-view",
     "href": "index.html#the-10000-foot-view",
     "title": "How calculus powers AI and modern tech",
@@ -49,11 +147,11 @@
     "text": "The 10,000 foot view\n\n\nMain idea 💡\n\nEdges are where an image suddenly changes\nChanges can be quantified with derivatives\n\nTo detect edges in an image:\n\nCalculate its gradient\nDetermine the magnitude of the gradient\n\n\n \n\nImage credit: Wikipedia Canny edge detector"
   },
   {
-    "objectID": "index.html#how-do-we-compute-the-gradient-of-an-image",
-    "href": "index.html#how-do-we-compute-the-gradient-of-an-image",
+    "objectID": "index.html#images-as-functions",
+    "href": "index.html#images-as-functions",
     "title": "How calculus powers AI and modern tech",
-    "section": "How do we compute the gradient of an image?",
-    "text": "How do we compute the gradient of an image?\nImages are just functions that assign a value to each pixel:\n\n\nGrayscale intensity\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^\\phantom{3}\n\\]\n\nRGB(A) color\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^3\n\\]\n\n\nImage credit: Chelsea the cat, scikit-image developers (CC0)"
+    "section": "Images as functions",
+    "text": "Images as functions\nImages are just functions that assign a value to each pixel:\n\n\nGrayscale intensity\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^\\phantom{3}\n\\]\n\nRGB(A) color\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^3\n\\]\n\n\nImage credit: Chelsea the cat, scikit-image developers (CC0)"
   },
   {
     "objectID": "index.html#detecting-changes-via-gradients",
@@ -102,6 +200,27 @@
     "href": "index.html#current-state-of-the-art",
     "title": "How calculus powers AI and modern tech",
     "section": "Current state of the art",
-    "text": "Current state of the art\n\nThe Canny edge detector is very efficient and easy to implement: state of the art for many years.\nModern deep neural networks outperform it, but are much more expensive to run.\n\n\n\nImage credit: Facebook Research SAM2"
+    "text": "Current state of the art\n\nThe Canny edge detector is very efficient and easy to implement: state of the art for many years.\nModern deep neural networks outperform it, but are much more expensive to run.\n\n\n\nImage credit: Meta AI SAM2"
+  },
+  {
+    "objectID": "index.html#why-is-calculus-useful",
+    "href": "index.html#why-is-calculus-useful",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Why is calculus useful?",
+    "text": "Why is calculus useful?\nIt’s the bridge between:\n\nClassical calculus → Modern applied mathematics\nSingle-variable thinking → Multivariate reality\nSimple models → Rich, realistic systems\nTheory → Computational practice"
+  },
+  {
+    "objectID": "index.html#what-i-found-useful",
+    "href": "index.html#what-i-found-useful",
+    "title": "How calculus powers AI and modern tech",
+    "section": "What I found useful",
+    "text": "What I found useful\nIf you take calculus:\n\nPractice visualization (use Python, Mathematica, Desmos 3D)\nConnect to your field (find data science applications)\nDon’t fear dimensions (intuition from 2D/3D extends)\nEmbrace computation (numerical methods are powerful)"
+  },
+  {
+    "objectID": "index.html#thank-you-for-your-attention",
+    "href": "index.html#thank-you-for-your-attention",
+    "title": "How calculus powers AI and modern tech",
+    "section": "Thank you for your attention!",
+    "text": "Thank you for your attention!\n\nContact: joris.vankerschaver@ghent.ac.kr\nPresentation: https://jvkersch.github.io/gmu-calc-lecture\nCode: https://github.com/jvkersch/gmu-calc-lecture"
   }
 ]
