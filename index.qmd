@@ -4,9 +4,27 @@ author: "Joris Vankerschaver"
 format: revealjs
 ---
 
-## Who am I
+## About this presentation
 
-# Optimizing mathematical functions
+- Presentation: [https://jvkersch.github.io/gmu-calc-lecture](https://jvkersch.github.io/gmu-calc-lecture)
+- Code: [https://github.com/jvkersch/gmu-calc-lecture](https://github.com/jvkersch/gmu-calc-lecture)
+
+- The presentation can be run from your browser
+- Embedded scripts take a while to load (10-20s) first time
+
+
+## Introduction
+
+(who am I)
+
+## What are we going to do today?
+
+We will use **calculus** (and a little linear algebra) to
+
+- Optimize neural networks and other functions
+- Find edges in images
+
+# Optimizing neural networks (and other functions)
 
 ## Example 1: Training a neural network
 
@@ -386,13 +404,35 @@ Image credit: Wikipedia [Convolutional neural network](https://en.wikipedia.org/
 Image credit: Meta AI [SAM2](https://github.com/facebookresearch/sam2)
 :::
 
-## Thank you for your attention
+# To wrap up
 
-:::: {.columns}
-::: {.column width="50%"}
-List the three main takeaways
+## Why is calculus useful?
+
+It's the bridge between:
+
+::: {.incremental}
+- Classical calculus → Modern applied mathematics
+- Single-variable thinking → Multivariate reality
+- Simple models → Rich, realistic systems
+- Theory → Computational practice
 :::
-::: {.column width="50%"}
-Have a QR code with survey and a QR code to presentation.
+
+## What I found useful
+
+If you take calculus:
+
+::: {.incremental}
+- Practice visualization (use Python, Mathematica, Desmos 3D)
+- Connect to your field (find data science applications)
+- Don't fear dimensions (intuition from 2D/3D extends)
+- Embrace computation (numerical methods are powerful)
 :::
-::::
+
+## Thank you for your attention!
+
+- **Contact:** [joris.vankerschaver@ghent.ac.kr](mailto:joris.vankerschaver@ghent.ac.kr)
+- **Presentation:** [https://jvkersch.github.io/gmu-calc-lecture](https://jvkersch.github.io/gmu-calc-lecture)
+- **Code:** [https://github.com/jvkersch/gmu-calc-lecture](https://github.com/jvkersch/gmu-calc-lecture)
+
+
+![](./images/qr-presentation.png){fig-align="center" width="50%"}
