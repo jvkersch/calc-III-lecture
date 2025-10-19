@@ -142,9 +142,9 @@ plt.streamplot(X, Y, -U, -V, color=np.log(Z))
 $$
 H(f)(x) =
 \begin{pmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \cdots & \frac{\partial^2 f}{\partial x_1\partial x_n} \\
-\vdots & & \vdots \\
-\frac{\partial^2 f}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+    \frac{\partial^2 f}{\partial x_1^2} & \cdots & \frac{\partial^2 f}{\partial x_1\partial x_n} \\
+    \vdots & & \vdots \\
+    \frac{\partial^2 f}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
 \end{pmatrix}
 $$
 
@@ -163,6 +163,13 @@ $$
 
 - Adapts step *magnitude* and *direction*.
 - Quadratic convergence near a minimum if $H(f)$ is positive definite.
+
+## Newton's method in action
+
+```{python}
+#| include: scripts/convergence.py
+```
+
 
 # Detecting edges in images
 
