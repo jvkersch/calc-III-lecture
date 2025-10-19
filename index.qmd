@@ -36,14 +36,14 @@ A firm produces and sells a product.
 
 Maximize (possibly subject to constraints)
 $$
-\Pi(q) = R(q) - C(q) = P(q)q - C(q)
+\Pi(q) = P(q)q - C(q)
 $$
 
 Maximizing $\Pi(q)$ is the same as minimizing $L(q) = - \Pi(q)$.
 
 ## The calculus connection
 
-To minimize $L(\theta)$:
+To minimize $L(\theta)$: set **gradient** equal to zero and solve for $\theta$
 
 $$
     \nabla L(\theta) = 
@@ -55,11 +55,19 @@ $$
         \end{pmatrix} = 0.
 $$
 
-::: {.incremental}
 - This is a **gradient** (generalization of derivative)
 - In practice: $p$ can be millions!
-- Can't solve analytically → use **gradient descent**
+
+## Minima, maxima, and saddle points
+
+::: {.column-screen}
+<iframe src="./second-derivative/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+</iframe>
 :::
+
+## Neural network training
+
+![](./images/2024-Alan-D-Thompson-Compute-Rev-9.png){fig-align="center"}
 
 ## The descent beckons
 
@@ -171,6 +179,15 @@ $$
 %run scripts/convergence.py
 ```
 
+## Key Takeaways
+
+::: {.incremental}
+- Neural networks = high-dimensional optimization
+- **Partial derivatives** tell us how to adjust each parameter
+- **Gradient** points toward steepest ascent
+- Modern deep learning uses sophisticated variants (Adam, RMSprop)
+- Calculus gives you the foundation to understand these algorithms
+:::
 
 # Detecting edges in images
 

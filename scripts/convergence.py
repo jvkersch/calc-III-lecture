@@ -1,7 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib import ticker
 import plotly.graph_objects as go
+
 
 def himmelblau(x, y):
     return (x**2 + y - 11) ** 2 + (x + y**2 - 7) ** 2
@@ -20,21 +19,19 @@ def himmelblau_hessian(x, y):
     return np.asarray(
         [
             [4 * (x**2 + y - 11) + 8 * x**2 + 2, 4 * x + 4 * y],
-            [4 * x + 4 * y, 4 * (x + y**2 - 7) + 8 * y**2 + 2] ,
+            [4 * x + 4 * y, 4 * (x + y**2 - 7) + 8 * y**2 + 2],
         ]
     )
 
 
 def newton_one_step(x, y):
-    update = np.linalg.solve(
-        himmelblau_hessian(x, y), himmelblau_gradient(x, y)
-    )
+    update = np.linalg.solve(himmelblau_hessian(x, y), himmelblau_gradient(x, y))
     return x - update[0], y - update[1]
 
 
 def gradient_descent_one_step(x, y, h=0.01):
     update = himmelblau_gradient(x, y)
-    return x - h*update[0], y - h*update[1]
+    return x - h * update[0], y - h * update[1]
 
 
 def run_n(method, start, n=10):
@@ -50,28 +47,20 @@ y = np.linspace(0, 4, 100)
 X, Y = np.meshgrid(x, y)
 Z = himmelblau(X, Y)
 
-
-# plt.contourf(X, Y, Z, cmap="coolwarm", locator=ticker.LogLocator())
-# plt.plot(gradient[:, 0], gradient[:, 1], "ko-")
-# plt.plot(newton[:, 0], newton[:, 1], "ro-")
-# plt.colorbar()
-# plt.show()
-
-
 fig = go.Figure()
 
 # Filled contours (heatmap style) with a coolwarm-like palette (RdBu reversed)
 fig.add_trace(
     go.Contour(
-        x=x,              # meshgrid X axis
-        y=y,              # meshgrid Y axis
-        z=np.log10(Z),       # log scale similar to LogLocator
+        x=x,  # meshgrid X axis
+        y=y,  # meshgrid Y axis
+        z=np.log10(Z),  # log scale similar to LogLocator
         showscale=False,
         contours=dict(coloring="heatmap", showlines=False),
         colorscale="RdBu",
-        reversescale=True,      # RdBu reversed ≈ Matplotlib coolwarm
+        reversescale=True,  # RdBu reversed ≈ Matplotlib coolwarm
         hovertemplate="x=%{x}<br>y=%{y}<br>log10(Z)=%{z}<extra></extra>",
-        name="Contours"
+        name="Contours",
     )
 )
 
@@ -83,7 +72,7 @@ fig.add_trace(
         mode="lines+markers",
         line=dict(width=2, color="black"),
         marker=dict(size=6, color="black"),
-        name="Gradient"
+        name="Gradient",
     )
 )
 
@@ -95,7 +84,7 @@ fig.add_trace(
         mode="lines+markers",
         line=dict(width=2, color="red"),
         marker=dict(size=6, color="red"),
-        name="Newton"
+        name="Newton",
     )
 )
 

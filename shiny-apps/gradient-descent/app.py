@@ -183,7 +183,7 @@ with ui.layout_columns(col_widths=(6, 6)):
                 autosize=False,
                 width=500,
                 height=500,
-                margin=dict(l=65, r=50, b=65, t=90),
+                # margin=dict(l=65, r=50, b=65, t=90),
             )
             return fig
 
