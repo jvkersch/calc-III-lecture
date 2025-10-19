@@ -1,11 +1,9 @@
 from shiny import reactive
 from shiny.express import input, render, ui
 from shiny.ui import output_plot
-from shinywidgets import render_plotly
 
 import matplotlib.pyplot as plt
 import numpy as np
-import plotly.graph_objects as go
 
 
 ### Objective functions ###
@@ -95,8 +93,10 @@ def get_trajectories():
 
 ui.page_opts(title="Gradient descent: trajectories", fillable=True)
 
+
 def get_obj():
     return FUNCTIONS[input.function()]
+
 
 with ui.sidebar():
     ui.input_selectize(
@@ -111,7 +111,7 @@ with ui.sidebar():
     ui.input_action_button("reset_btn", "Reset")
 
 
-with ui.layout_columns(col_widths=(12, )):
+with ui.layout_columns(col_widths=(12,)):
     with ui.card():
         output_plot(
             "image_2d",
