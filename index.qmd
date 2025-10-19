@@ -107,11 +107,13 @@ Recall:
 
 ## The gradient descent method
 
-Start with initial guess $\theta^{(0)}$ and iterate:
-
-$$\theta^{(k+1)} = \theta^{(k)} - \alpha \nabla L(\theta^{(k)})$$
-
+- Start with initial guess $\theta^{(0)}$ and iterate:
+$$
+    \theta^{(k+1)} = \theta^{(k)} - \alpha \nabla L(\theta^{(k)})
+$$
 Here, $\alpha$ is the **learning rate** (step size)
+
+- Repeat until no more progress
 
 ##
 
@@ -150,6 +152,24 @@ Source: GeeksForGeeks [Backpropagation in neural networks](https://www.geeksforg
 
 ## Neural network training
 
+(Stochastic) Gradient Descent:
+
+-  How neural networks were trained up until the 2010s
+-  Still a good algorithm to know about!
+
+These days, more sophisticated algorithms exist (Adam, RMSprop, etc).
+
+## Neural network training
+
+![](./images/alexnet.png){fig-align="center"}
+
+::: {.tiny-text}
+Source: ImageNet Classification with Deep Convolutional
+Neural Networks, Krizhevsky et al, NeurIPS (2012)
+:::
+
+## Neural network training
+
 ![](./images/2024-Alan-D-Thompson-Compute-Rev-9.png){fig-align="center"}
 
 ## Taking curvature into account
@@ -159,15 +179,15 @@ Source: GeeksForGeeks [Backpropagation in neural networks](https://www.geeksforg
 ## The Hessian matrix
 
 $$
-H(L)(x) =
+H(L)(\theta) =
 \begin{pmatrix}
-    \frac{\partial^2 L}{\partial x_1^2} & \cdots & \frac{\partial^2 L}{\partial x_1\partial x_n} \\
+    \frac{\partial^2 L}{\partial \theta_1^2} & \cdots & \frac{\partial^2 L}{\partial \theta_1\partial \theta_n} \\
     \vdots & & \vdots \\
-    \frac{\partial^2 L}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 L}{\partial x_n^2}
+    \frac{\partial^2 L}{\partial \theta_n\partial \theta_1} & \cdots & \frac{\partial^2 L}{\partial \theta_n^2}
 \end{pmatrix}
 $$
 
-- **Symmetric** if $f$ twice continuously differentiable.
+- **Symmetric** if $L$ twice continuously differentiable.
 - Captures **local curvature**: how the gradient changes near a point.
 
 ## Newton's method
@@ -193,13 +213,11 @@ $$
 ## Conclusion so far
 
 ::: {.incremental}
-- Neural networks = high-dimensional optimization
-- **Partial derivatives** tell us how to adjust each parameter
-- **Gradient** points toward steepest ascent
+- Neural networks are functions
+- Finding optimal parameters = high-dimensional optimization
+- Gradient/Hessian tells us how to adjust parameters
 - Modern deep learning uses sophisticated variants (Adam, RMSprop)
-
-
-Calculus gives you the foundation to understand all of these algorithms!
+- Calculus gives you the foundation to understand all of these algorithms!
 :::
 
 
@@ -222,8 +240,8 @@ To detect edges in an image:
 
 :::
 ::: {.column width="40%"}
-![](images/Valve_original.png)
-![](images/Valve_monochrome_canny.png)
+![](images/Valve_original.png){fig-align="center" width="75%"}
+![](images/Valve_monochrome_canny.png){fig-align="center" width="75%"}
 
 ::: {.small-text}
 Image credit: Wikipedia [Canny edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector)
@@ -231,7 +249,7 @@ Image credit: Wikipedia [Canny edge detector](https://en.wikipedia.org/wiki/Cann
 :::
 ::::
 
-## How do we compute the gradient of an image?
+## Images as functions
 
 Images are just **functions** that assign a value to each pixel:
 
@@ -240,7 +258,7 @@ Images are just **functions** that assign a value to each pixel:
 
 Grayscale intensity
 
-![](images/chelsea-gray.png)
+![](images/chelsea-gray.png){height="75%"}
 $$
     I: [0, W] \times [0, H] \to \mathbb{R}^\phantom{3}
 $$
@@ -249,7 +267,7 @@ $$
 ::: {.column width="50%"}
 RGB(A) color
 
-![](images/chelsea-color.png)
+![](images/chelsea-color.png){height="75%"}
 $$
     I: [0, W] \times [0, H] \to \mathbb{R}^3
 $$

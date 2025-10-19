@@ -148,7 +148,7 @@ with ui.layout_columns(col_widths=(12,)):
                 # plot trajectories on top of contour map
                 for traj in get_trajectories():
                     traj = np.asarray(traj)
-                    plt.plot(traj[:, 0], traj[:, 1], "r.")
+                    plt.plot(traj[:, 0], traj[:, 1], "r-o")
 
                 pts = get_trajectories()
                 if len(pts) > 0:

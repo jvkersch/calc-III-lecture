@@ -30,6 +30,7 @@ Ys = Y[::9, ::9]
 U, V = log_himmelblau_gradient(Xs, Ys)
 
 plt.contourf(X, Y, Z, cmap="coolwarm", locator=ticker.LogLocator())
+plt.colorbar()
 plt.quiver(Xs, Ys, -U, -V, angles="xy")
 plt.title("Normalized negative gradient (Himmelblau function)")
 plt.show()

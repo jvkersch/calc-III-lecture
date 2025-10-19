@@ -96,6 +96,7 @@ with ui.layout_columns(col_widths=(6, 6)):
         @render.plot
         def image_2d():
             plt.imshow(img(), cmap="gray")
+            plt.colorbar()
             plt.title("Original image")
 
     with ui.card():
@@ -106,19 +107,22 @@ with ui.layout_columns(col_widths=(6, 6)):
             y_true, x_true = np.nonzero(grad_norm > input.threshold())
 
             plt.imshow(img(), cmap="gray")
+            plt.colorbar()
             plt.plot(x_true, y_true, "r.", markersize=1)
-            plt.title("Image with edges (red)")
+            plt.title("Edges (red)")
 
     with ui.card():
 
         @render.plot
         def grad_x_plot():
             plt.imshow(grad_x())
-            plt.title("Gradient in the x-direction")
+            plt.colorbar()
+            plt.title("Derivative (x)")
 
     with ui.card():
 
         @render.plot
         def grad_y_plot():
             plt.imshow(grad_y())
-            plt.title("Gradient in the y-direction")
+            plt.colorbar()
+            plt.title("Derivative (y)")
