@@ -167,7 +167,8 @@ $$
 ## Newton's method in action
 
 ```{python}
-#| include: scripts/convergence.py
+#| echo: false
+%run scripts/convergence.py
 ```
 
 
