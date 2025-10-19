@@ -43,7 +43,7 @@ Maximizing $\Pi(q)$ is the same as minimizing $L(q) = - \Pi(q)$.
 
 ## The calculus connection
 
-To minimize $L(\theta)$: set **gradient** equal to zero and solve for $\theta$
+To minimize $L(\theta)$, find zeros of the gradient
 
 $$
     \nabla L(\theta) = 
@@ -52,22 +52,18 @@ $$
             \frac{\partial L}{\partial \theta_2} \\ 
             \vdots \\ 
             \frac{\partial L}{\partial \theta_p} 
-        \end{pmatrix} = 0.
+        \end{pmatrix}
 $$
 
-- This is a **gradient** (generalization of derivative)
-- In practice: $p$ can be millions!
+- Zeros are minima, maxima, or saddle points
+- Hard (impossible) to solve analytically
 
-## Minima, maxima, and saddle points
+##
 
 ::: {.column-screen}
 <iframe src="./second-derivative/" style="position:absolute; top:0; left:0; width:100%; height:100%;">
 </iframe>
 :::
-
-## Neural network training
-
-![](./images/2024-Alan-D-Thompson-Compute-Rev-9.png){fig-align="center"}
 
 ## The descent beckons
 
@@ -92,10 +88,24 @@ $$
 
 ## Moving in the direction of steepest descent
 
+:::: {.columns}
+::: {.column width="50%"}
+
 Recall: 
 
 - Gradient: direction of steepest ascent ⬆️
 - Negative gradient: **steepest descent** ⬇️
+
+:::
+
+::: {.column width="50%"}
+```{python}
+%run scripts/gradient.py
+```
+:::
+::::
+
+## The gradient descent method
 
 Start with initial guess $\theta^{(0)}$ and iterate:
 
@@ -110,8 +120,10 @@ Here, $\alpha$ is the **learning rate** (step size)
 </iframe>
 :::
 
-## The ODE perspective
+## Aside: "continuous" gradient descent
 
+:::: {.columns}
+::: {.column width="50%"}
 In the limit of very small steps ($\alpha \to 0$), we get an ODE
 
 $$
@@ -119,27 +131,26 @@ $$
 $$
 
 Finding minima is the same as finding attracting fixed points of this ODE.
+:::
 
+::: {.column width="50%"}
 ```{python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-def himmelblau(x, y):
-    return (x**2 + y - 11) ** 2 + (x + y**2 - 7) ** 2
-
-def himmelblau_gradient(x, y):
-    return [
-        4 * (x**2 + y - 11) * x + 2 * (x + y**2 - 7),
-        2 * (x**2 + y - 11) + 4 * (x + y**2 - 7) * y,
-    ]
-
-x = y = np.linspace(-6, 6, 100)
-X, Y = np.meshgrid(x, y)
-Z = himmelblau(X, Y)
-U, V = himmelblau_gradient(X, Y)
-
-plt.streamplot(X, Y, -U, -V, color=np.log(Z))
+%run "scripts/ode.py"
 ```
+:::
+::::
+
+## Backpropagation: gradient of a neural network
+
+![](./images/Backpropagation-in-Neural-Network-1.webp){fig-align="center"}
+
+::: {.tiny-text}
+Source: GeeksForGeeks [Backpropagation in neural networks](https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/)
+:::
+
+## Neural network training
+
+![](./images/2024-Alan-D-Thompson-Compute-Rev-9.png){fig-align="center"}
 
 ## Taking curvature into account
 
@@ -148,11 +159,11 @@ plt.streamplot(X, Y, -U, -V, color=np.log(Z))
 ## The Hessian matrix
 
 $$
-H(f)(x) =
+H(L)(x) =
 \begin{pmatrix}
-    \frac{\partial^2 f}{\partial x_1^2} & \cdots & \frac{\partial^2 f}{\partial x_1\partial x_n} \\
+    \frac{\partial^2 L}{\partial x_1^2} & \cdots & \frac{\partial^2 L}{\partial x_1\partial x_n} \\
     \vdots & & \vdots \\
-    \frac{\partial^2 f}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+    \frac{\partial^2 L}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 L}{\partial x_n^2}
 \end{pmatrix}
 $$
 
@@ -170,7 +181,7 @@ $$
 
 
 - Adapts step *magnitude* and *direction*.
-- Quadratic convergence near a minimum if $H(f)$ is positive definite.
+- Quadratic convergence near a minimum if $H(L)$ is positive definite.
 
 ## Newton's method in action
 
@@ -179,15 +190,18 @@ $$
 %run scripts/convergence.py
 ```
 
-## Key Takeaways
+## Conclusion so far
 
 ::: {.incremental}
 - Neural networks = high-dimensional optimization
 - **Partial derivatives** tell us how to adjust each parameter
 - **Gradient** points toward steepest ascent
 - Modern deep learning uses sophisticated variants (Adam, RMSprop)
-- Calculus gives you the foundation to understand these algorithms
+
+
+Calculus gives you the foundation to understand all of these algorithms!
 :::
+
 
 # Detecting edges in images
 

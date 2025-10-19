@@ -93,10 +93,10 @@ def get_trajectories():
 
 ### UI code ###
 
+ui.page_opts(title="Gradient descent: trajectories", fillable=True)
 
 def get_obj():
     return FUNCTIONS[input.function()]
-
 
 with ui.sidebar():
     ui.input_selectize(
@@ -111,7 +111,7 @@ with ui.sidebar():
     ui.input_action_button("reset_btn", "Reset")
 
 
-with ui.layout_columns(col_widths=(6, 6)):
+with ui.layout_columns(col_widths=(12, )):
     with ui.card():
         output_plot(
             "image_2d",
@@ -166,26 +166,26 @@ with ui.layout_columns(col_widths=(6, 6)):
 
                 plt.tight_layout()
 
-    with ui.card():
+    # with ui.card():
 
-        @render_plotly
-        def image_3d():
-            obj = get_obj()
+    #     @render_plotly
+    #     def image_3d():
+    #         obj = get_obj()
 
-            x = np.linspace(*obj.X_BOUNDS)
-            y = np.linspace(*obj.Y_BOUNDS)
-            X, Y = np.meshgrid(x, y)
+    #         x = np.linspace(*obj.X_BOUNDS)
+    #         y = np.linspace(*obj.Y_BOUNDS)
+    #         X, Y = np.meshgrid(x, y)
 
-            Z = obj.eval_fun(X, Y)
+    #         Z = obj.eval_fun(X, Y)
 
-            fig = go.Figure(data=[go.Surface(x=X, y=Y, z=Z)])
-            fig.update_layout(
-                autosize=False,
-                width=500,
-                height=500,
-                # margin=dict(l=65, r=50, b=65, t=90),
-            )
-            return fig
+    #         fig = go.Figure(data=[go.Surface(x=X, y=Y, z=Z)])
+    #         fig.update_layout(
+    #             autosize=False,
+    #             width=500,
+    #             height=500,
+    #             # margin=dict(l=65, r=50, b=65, t=90),
+    #         )
+    #         return fig
 
     @reactive.effect
     @reactive.event(input.image_2d_click)

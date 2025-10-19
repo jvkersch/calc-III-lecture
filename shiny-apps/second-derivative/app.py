@@ -91,7 +91,7 @@ def on_point_hover(_, points, __):
 
 ### UI ###
 
-ui.page_opts(title="The second derivative test", fillable=True)
+ui.page_opts(title="Minima, maxima, saddle points", fillable=True)
 
 ui.head_content(
     ui.tags.script(src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
