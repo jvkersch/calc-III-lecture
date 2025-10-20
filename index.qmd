@@ -2,6 +2,10 @@
 title: "How calculus powers machine learning and AI"
 author: "Joris Vankerschaver (Ghent University Global Campus)"
 format: revealjs
+title-slide-attributes:
+  data-background-image: ./images/logos.png
+  data-background-size: 25%
+  data-background-position: 50% 90%
 ---
 
 ## About this presentation
