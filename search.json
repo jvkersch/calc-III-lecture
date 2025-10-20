@@ -2,224 +2,238 @@
   {
     "objectID": "index.html#about-this-presentation",
     "href": "index.html#about-this-presentation",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "About this presentation",
     "text": "About this presentation\n\nPresentation: https://jvkersch.github.io/gmu-calc-lecture\nCode: https://github.com/jvkersch/gmu-calc-lecture\nThe presentation can be run from your browser\nEmbedded scripts take a while to load (10-20s) first time"
   },
   {
     "objectID": "index.html#introduction",
     "href": "index.html#introduction",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Introduction",
-    "text": "Introduction\n(who am I)"
+    "text": "Introduction\n\nSince 2021: professor at GUGC\n\nIntroduction to Engineering Mathematics\nProbability and Statistics\nIntroduction to Statistical Modelling\n\n2013-2021: Scientific software developer at Enthought (Cambridge, UK)\nBefore 2013: Researcher in US, UK, Japan"
+  },
+  {
+    "objectID": "index.html#professional-experience",
+    "href": "index.html#professional-experience",
+    "title": "How calculus powers machine learning and AI",
+    "section": "Professional experience",
+    "text": "Professional experience\n\nSoftware for new electron microscopes\nDNA sequencing via a new electro/biological substrate\nData/compute management for life sciences companies\nPredictive algorithms in oil and gas (subsoil modelling)\nCompound modelling in pharma"
+  },
+  {
+    "objectID": "index.html#how-have-i-found-calculus-useful",
+    "href": "index.html#how-have-i-found-calculus-useful",
+    "title": "How calculus powers machine learning and AI",
+    "section": "How have I found calculus useful",
+    "text": "How have I found calculus useful\n\nI used to think that nobody cares about ODEs, integrals, vector fields, etc\nThat is categorically false\nYou have to do the job of translating real-world problems into calculus terms"
   },
   {
     "objectID": "index.html#what-are-we-going-to-do-today",
     "href": "index.html#what-are-we-going-to-do-today",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "What are we going to do today?",
-    "text": "What are we going to do today?\nWe will use calculus (and a little linear algebra) to\n\nOptimize neural networks and other functions\nFind edges in images"
+    "text": "What are we going to do today?\n\nYour professors have demystified calculus for you\nWe will try to demystify some applications of calculus\nWe will use calculus (and a little linear algebra) to\n\nOptimize neural networks and other functions\nFind edges in images"
   },
   {
     "objectID": "index.html#example-1-training-a-neural-network",
     "href": "index.html#example-1-training-a-neural-network",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Example 1: Training a neural network",
     "text": "Example 1: Training a neural network\nYou have:\n\nTraining data: \\((x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\)\nA model with parameters: \\(\\theta = (\\theta_1, \\theta_2, \\ldots, \\theta_p)\\)\nA loss function: \\(L(\\theta) = \\frac{1}{n}\\sum_{i=1}^n (f(x_i; \\theta) - y_i)^2\\)\n\nGoal: Find \\(\\theta^*\\) that minimizes \\(L(\\theta)\\)"
   },
   {
     "objectID": "index.html#finding-the-minimum-can-be-difficult",
     "href": "index.html#finding-the-minimum-can-be-difficult",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Finding the minimum can be difficult",
     "text": "Finding the minimum can be difficult\n\n\nVisualizing the Loss Landscape of Neural Nets, Li et al., NeurIPS 2018."
   },
   {
     "objectID": "index.html#example-2-profit-maximization",
     "href": "index.html#example-2-profit-maximization",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Example 2: Profit maximization",
     "text": "Example 2: Profit maximization\nA firm produces and sells a product.\n\n\\(q\\): quantity produced\n\n\\(P(q)\\): price per unit\n\n\\(C(q)\\): cost function\n\nMaximize (possibly subject to constraints) \\[\n\\Pi(q) = P(q)q - C(q)\n\\]\nMaximizing \\(\\Pi(q)\\) is the same as minimizing \\(L(q) = - \\Pi(q)\\)."
   },
   {
     "objectID": "index.html#the-calculus-connection",
     "href": "index.html#the-calculus-connection",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "The calculus connection",
     "text": "The calculus connection\nTo minimize \\(L(\\theta)\\), find zeros of the gradient\n\\[\n    \\nabla L(\\theta) =\n        \\begin{pmatrix}\n            \\frac{\\partial L}{\\partial \\theta_1} \\\\\n            \\frac{\\partial L}{\\partial \\theta_2} \\\\\n            \\vdots \\\\\n            \\frac{\\partial L}{\\partial \\theta_p}\n        \\end{pmatrix}\n\\]\n\nZeros are minima, maxima, or saddle points\nHard (impossible) to solve analytically"
   },
   {
     "objectID": "index.html#the-descent-beckons",
     "href": "index.html#the-descent-beckons",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "The descent beckons",
     "text": "The descent beckons\n\n\n\nYou want to go down the mountain into the valley as efficiently as possible.\nThe fog prevents you from seeing more than a few meters in every direction.\nHow do you proceed?\n\n💡 Walk in the direction of steepest descent\n\n\n\n\n\n\n\nWanderer above the Sea of Fog, Caspar David Friedrich (1818)"
   },
   {
     "objectID": "index.html#moving-in-the-direction-of-steepest-descent",
     "href": "index.html#moving-in-the-direction-of-steepest-descent",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Moving in the direction of steepest descent",
     "text": "Moving in the direction of steepest descent\n\n\nRecall:\n\nGradient: direction of steepest ascent ⬆️\nNegative gradient: steepest descent ⬇️"
   },
   {
     "objectID": "index.html#the-gradient-descent-method",
     "href": "index.html#the-gradient-descent-method",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "The gradient descent method",
     "text": "The gradient descent method\n\nStart with initial guess \\(\\theta^{(0)}\\) and iterate: \\[\n  \\theta^{(k+1)} = \\theta^{(k)} - \\alpha \\nabla L(\\theta^{(k)})\n\\] Here, \\(\\alpha\\) is the learning rate (step size)\nRepeat until no more progress"
   },
   {
     "objectID": "index.html#aside-continuous-gradient-descent",
     "href": "index.html#aside-continuous-gradient-descent",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Aside: “continuous” gradient descent",
     "text": "Aside: “continuous” gradient descent\n\n\nIn the limit of very small steps (\\(\\alpha \\to 0\\)), we get an ODE\n\\[\n    \\frac{d {\\theta}}{dt} = - \\nabla L(\\theta).\n\\]\nFinding minima is the same as finding attracting fixed points of this ODE."
   },
   {
     "objectID": "index.html#backpropagation-gradient-of-a-neural-network",
     "href": "index.html#backpropagation-gradient-of-a-neural-network",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Backpropagation: gradient of a neural network",
     "text": "Backpropagation: gradient of a neural network\n\n\nSource: GeeksForGeeks Backpropagation in neural networks"
   },
   {
     "objectID": "index.html#neural-network-training",
     "href": "index.html#neural-network-training",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Neural network training",
     "text": "Neural network training\n(Stochastic) Gradient Descent:\n\nHow neural networks were trained up until the 2010s\nStill a good algorithm to know about!\n\nThese days, more sophisticated algorithms exist (Adam, RMSprop, etc)."
   },
   {
     "objectID": "index.html#neural-network-training-1",
     "href": "index.html#neural-network-training-1",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Neural network training",
     "text": "Neural network training\n\n\nSource: ImageNet Classification with Deep Convolutional Neural Networks, Krizhevsky et al, NeurIPS (2012)"
   },
   {
     "objectID": "index.html#neural-network-training-2",
     "href": "index.html#neural-network-training-2",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Neural network training",
     "text": "Neural network training"
   },
   {
     "objectID": "index.html#taking-curvature-into-account",
     "href": "index.html#taking-curvature-into-account",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Taking curvature into account",
     "text": "Taking curvature into account"
   },
   {
     "objectID": "index.html#the-hessian-matrix",
     "href": "index.html#the-hessian-matrix",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "The Hessian matrix",
     "text": "The Hessian matrix\n\\[\nH(L)(\\theta) =\n\\begin{pmatrix}\n    \\frac{\\partial^2 L}{\\partial \\theta_1^2} & \\cdots & \\frac{\\partial^2 L}{\\partial \\theta_1\\partial \\theta_n} \\\\\n    \\vdots & & \\vdots \\\\\n    \\frac{\\partial^2 L}{\\partial \\theta_n\\partial \\theta_1} & \\cdots & \\frac{\\partial^2 L}{\\partial \\theta_n^2}\n\\end{pmatrix}\n\\]\n\nSymmetric if \\(L\\) twice continuously differentiable.\nCaptures local curvature: how the gradient changes near a point."
   },
   {
     "objectID": "index.html#newtons-method",
     "href": "index.html#newtons-method",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Newton’s method",
     "text": "Newton’s method\n\nGradient descent uses only first derivatives.\nNewton’s method uses curvature:\n\n\\[\n\\theta_{k+1} = \\theta_k - H(L)^{-1}\\nabla L(\\theta_k)\n\\]\n\nAdapts step magnitude and direction.\nQuadratic convergence near a minimum if \\(H(L)\\) is positive definite."
   },
   {
     "objectID": "index.html#newtons-method-in-action",
     "href": "index.html#newtons-method-in-action",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Newton’s method in action",
     "text": "Newton’s method in action"
   },
   {
     "objectID": "index.html#conclusion-so-far",
     "href": "index.html#conclusion-so-far",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Conclusion so far",
     "text": "Conclusion so far\n\nNeural networks are functions\nFinding optimal parameters = high-dimensional optimization\nGradient/Hessian tells us how to adjust parameters\nModern deep learning uses sophisticated variants (Adam, RMSprop)\nCalculus gives you the foundation to understand all of these algorithms!"
   },
   {
     "objectID": "index.html#the-10000-foot-view",
     "href": "index.html#the-10000-foot-view",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "The 10,000 foot view",
     "text": "The 10,000 foot view\n\n\nMain idea 💡\n\nEdges are where an image suddenly changes\nChanges can be quantified with derivatives\n\nTo detect edges in an image:\n\nCalculate its gradient\nDetermine the magnitude of the gradient\n\n\n \n\nImage credit: Wikipedia Canny edge detector"
   },
   {
     "objectID": "index.html#images-as-functions",
     "href": "index.html#images-as-functions",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Images as functions",
     "text": "Images as functions\nImages are just functions that assign a value to each pixel:\n\n\nGrayscale intensity\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^\\phantom{3}\n\\]\n\nRGB(A) color\n \\[\n    I: [0, W] \\times [0, H] \\to \\mathbb{R}^3\n\\]\n\n\nImage credit: Chelsea the cat, scikit-image developers (CC0)"
   },
   {
     "objectID": "index.html#detecting-changes-via-gradients",
     "href": "index.html#detecting-changes-via-gradients",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Detecting changes via gradients",
     "text": "Detecting changes via gradients\nIf we have a function \\(I\\), we can compute its gradient: \\[\n\\nabla I = \\begin{pmatrix}\n        \\frac{\\partial I}{\\partial x} \\\\\n        \\frac{\\partial I}{\\partial y}\n    \\end{pmatrix}.\n\\]\nThe magnitude \\[\n    \\left\\Vert \\nabla I \\right\\Vert =\n    \\sqrt{\\left(\\frac{\\partial I}{\\partial x}\\right)^2 +\n          \\left(\\frac{\\partial I}{\\partial y}\\right)^2}\n\\] tells us about changes in \\(I\\)."
   },
   {
     "objectID": "index.html#images-are-discrete-functions",
     "href": "index.html#images-are-discrete-functions",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Images are discrete functions",
     "text": "Images are discrete functions\n\nHard to compute the gradient of a discrete function!"
   },
   {
     "objectID": "index.html#think-about-rate-of-change",
     "href": "index.html#think-about-rate-of-change",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Think about rate of change",
     "text": "Think about rate of change\n\nThe partial derivative tells us something about rate of change: \\[\n  \\frac{\\partial I}{\\partial x}: \\text{rate of change in $x$-direction}\n\\]\nFor a discrete function: replace \\[\n  \\frac{\\partial I}{\\partial x}(i, j) \\rightarrow \\boxed{I(i + 1, j) - I(i - 1, j)}\n\\]\n\n\nYou can use Taylor expansions to show that the so-called central difference approximation above is proportional to the derivative up to second order, but as it’s close to lunchtime we will not do that…"
   },
   {
     "objectID": "index.html#finite-differences-are-just-matrices",
     "href": "index.html#finite-differences-are-just-matrices",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Finite differences are just matrices",
     "text": "Finite differences are just matrices\nLet’s write our finite difference as a matrix multiplication: \\[\\begin{align*}\n    I_{i + 1, j} - I_{i - 1, j} & = \\begin{bmatrix} -1 & 0 & 1 \\end{bmatrix}\n    \\begin{bmatrix}\n        I_{i-1, j} \\\\\n        I_{i,j} \\\\\n        I_{i+1, j}\n    \\end{bmatrix}\n\\end{align*}\\]\nWhy would we do that? Computers these days are very good at working with matrices."
   },
   {
     "objectID": "index.html#lets-go-one-step-further",
     "href": "index.html#lets-go-one-step-further",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Let’s go one step further",
     "text": "Let’s go one step further\nTo have a more stable rate of change, it makes sense to average over nearby pixels.\nThis can be written as a convolution operation: \\[\n     \\frac{\\partial I}{\\partial x} \\rightarrow\n        \\begin{bmatrix}\n            -1 & 0 & 1 \\\\\n            -2 & 0 & 2 \\\\\n            -1 & 0 & 1 \\\\\n        \\end{bmatrix} \\ast I\n\\] Congratulations, you have just rediscovered the Sobel operator!"
   },
   {
     "objectID": "index.html#what-does-this-give-us",
     "href": "index.html#what-does-this-give-us",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "What does this give us?",
     "text": "What does this give us?\nThe Sobel operator is:\n\nThe basis for the Canny edge detector\nAn example of a feature map in a convolutional neural network\n\n\n\nImage credit: Wikipedia Convolutional neural network"
   },
   {
     "objectID": "index.html#current-state-of-the-art",
     "href": "index.html#current-state-of-the-art",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Current state of the art",
     "text": "Current state of the art\n\nThe Canny edge detector is very efficient and easy to implement: state of the art for many years.\nModern deep neural networks outperform it, but are much more expensive to run.\n\n\n\nImage credit: Meta AI SAM2"
   },
   {
-    "objectID": "index.html#why-is-calculus-useful",
-    "href": "index.html#why-is-calculus-useful",
-    "title": "How calculus powers AI and modern tech",
-    "section": "Why is calculus useful?",
-    "text": "Why is calculus useful?\nIt’s the bridge between:\n\nClassical calculus → Modern applied mathematics\nSingle-variable thinking → Multivariate reality\nSimple models → Rich, realistic systems\nTheory → Computational practice"
+    "objectID": "index.html#why-is-advanced-calculus-useful",
+    "href": "index.html#why-is-advanced-calculus-useful",
+    "title": "How calculus powers machine learning and AI",
+    "section": "Why is advanced calculus useful?",
+    "text": "Why is advanced calculus useful?\nIt’s the bridge between:\n\nClassical calculus → Modern applied mathematics\nSingle-variable thinking → Multivariate reality\nSimple models → Rich, realistic systems\nTheory → Computational practice"
   },
   {
     "objectID": "index.html#what-i-found-useful",
     "href": "index.html#what-i-found-useful",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "What I found useful",
-    "text": "What I found useful\nIf you take calculus:\n\nPractice visualization (use Python, Mathematica, Desmos 3D)\nConnect to your field (find data science applications)\nDon’t fear dimensions (intuition from 2D/3D extends)\nEmbrace computation (numerical methods are powerful)"
+    "text": "What I found useful\nIf you take calculus:\n\nPractice visualization (use Python, Mathematica, …)\nConnect to your field (find data science applications)\nDon’t fear dimensions (intuition from 2D/3D extends)\nEmbrace computation (numerical methods are powerful)"
   },
   {
     "objectID": "index.html#thank-you-for-your-attention",
     "href": "index.html#thank-you-for-your-attention",
-    "title": "How calculus powers AI and modern tech",
+    "title": "How calculus powers machine learning and AI",
     "section": "Thank you for your attention!",
     "text": "Thank you for your attention!\n\nContact: joris.vankerschaver@ghent.ac.kr\nPresentation: https://jvkersch.github.io/gmu-calc-lecture\nCode: https://github.com/jvkersch/gmu-calc-lecture"
   }
