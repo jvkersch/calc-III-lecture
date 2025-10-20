@@ -1,6 +1,6 @@
 ---
-title: "How calculus powers AI and modern tech"
-author: "Joris Vankerschaver"
+title: "How calculus powers machine learning and AI"
+author: "Joris Vankerschaver (Ghent University Global Campus)"
 format: revealjs
 ---
 
@@ -12,17 +12,40 @@ format: revealjs
 - The presentation can be run from your browser
 - Embedded scripts take a while to load (10-20s) first time
 
-
 ## Introduction
 
-(who am I)
+- Since 2021: professor at GUGC
+  - Introduction to Engineering Mathematics
+  - Probability and Statistics
+  - Introduction to Statistical Modelling
+- 2013-2021: Scientific software developer at Enthought (Cambridge, UK)
+- Before 2013: Researcher in US, UK, Japan
+
+## Professional experience
+
+- Software for new electron microscopes
+- DNA sequencing via a new electro/biological substrate
+- Data/compute management for life sciences companies
+- Predictive algorithms in oil and gas (subsoil modelling)
+- Compound modelling in pharma
+
+## How have I found calculus useful
+
+::: {.incremental}
+- I used to think that nobody cares about ODEs, integrals, vector fields, etc
+- That is **categorically false**
+- You have to do the job of **translating real-world problems** into calculus terms
+:::
 
 ## What are we going to do today?
 
-We will use **calculus** (and a little linear algebra) to
-
-- Optimize neural networks and other functions
-- Find edges in images
+::: {.incremental}
+- Your professors have demystified calculus for you
+- We will try to demystify some **applications of calculus**
+- We will use calculus (and a little linear algebra) to
+  - Optimize neural networks and other functions
+  - Find edges in images
+:::
 
 # Optimizing neural networks (and other functions)
 
@@ -406,7 +429,7 @@ Image credit: Meta AI [SAM2](https://github.com/facebookresearch/sam2)
 
 # To wrap up
 
-## Why is calculus useful?
+## Why is advanced calculus useful?
 
 It's the bridge between:
 
@@ -422,7 +445,7 @@ It's the bridge between:
 If you take calculus:
 
 ::: {.incremental}
-- Practice visualization (use Python, Mathematica, Desmos 3D)
+- Practice visualization (use Python, Mathematica, ...)
 - Connect to your field (find data science applications)
 - Don't fear dimensions (intuition from 2D/3D extends)
 - Embrace computation (numerical methods are powerful)
